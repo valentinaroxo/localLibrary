@@ -8,6 +8,11 @@ var app = require('../app');
 var debug = require('debug')('locallibrary:server');
 var http = require('http');
 
+/**
+ * Get port from environment and store in Express.
+ */
+
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 // Set up mongoose connection
@@ -37,14 +42,6 @@ try {
   console.error("Failed to connect to MongoDB:", err);
   process.exit(1);
 }
-
-/**
- * Get port from environment and store in Express.
- */
-
-var port = normalizePort(process.env.PORT || '3000');
-
-
 
 /**
  * Create HTTP server.
