@@ -13,7 +13,9 @@ app.set('port', port);
 // Set up mongoose connection
 const mongoose = require("mongoose");
 
-const mongoDB = "mongodb+srv://dbUser:YCputk26dBUc8XHb@cluster0.4nuqrew.mongodb.net/?appName=Cluster0";
+const dev_db_url =
+  "mongodb+srv://dbUser:YCputk26dBUc8XHb@cluster0.4nuqrew.mongodb.net/?appName=Cluster0";
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 
 
 async function connectMongoose() {
